@@ -1,0 +1,85 @@
+---
+title: "Exam!"
+author: "Thakur Prasad Ghimire"
+date: "10/14/2021"
+output: word_document
+---
+
+(20 points) I’ve run crosstabs on a subset of the data (so you cannot replicate, just use these data as provided). These give verbose summary of vaxx choice by educational qualification and region. Form a hypothesis test of the form, “people with various educational qualifications in Region have different fraction vaxxed compared with other Region.” I expect that you will choose different ways to operationalize educational qualification (compare above some level with below that level, but what level?) and different regions (Census provides 4 – Northeast, Midwest, South, West, you might combine them). You can choose how to deal with NA responses to vaxx – perhaps count them as ‘no’? I expect that different people may choose different levels of significance. Please provide estimate, standard error, t-stat and a p-value for the hypothesis test and a confidence interval. Write a short paragraph explaining the test (carefully noting what is the null hypothesis) and explaining the results of that test.
+
+```{r}
+load("C:/Homework EcoB2000/exam1/Household_Pulse_data.RData")
+attach(Household_Pulse_data)
+
+```
+
+a) “people with various educational qualifications in Region Northeast have different
+fraction vaxxed compared with other Region.”
+Ho: people in region northeast have different vaxxed impact
+H1: people in region northeast have same vaxxed impact
+
+
+```{r}
+ xtabs(~ EEDUC + RECVDVACC + REGION)
+```
+
+Coeff -0.08816
+t-stat 1.08
+P value 5.04
+The coefficient of the region northeast is insignificant at P&lt;0 we cannot reject the null
+hypothesis. This means that in region northeast the different EEDUC has different impact on
+vaxx.
+
+(20 points) I’ve run crosstabs again, this time on vaxx choice by educational qualification and gender identification. Form a hypothesis test of the form, “people with various educational qualifications who are one or more gender ID have different fraction vaxxed compared with another gender ID.” I expect that you will choose different ways to operationalize educational qualification (as noted in Question 1) and different genders (including the NA response, perhaps it makes sense to combine some). Choose a level of significance. Please provide estimate, standard error, t-stat and a p-value for the hypothesis test and a confidence interval. Write a short paragraph explaining the test (carefully noting what is the null hypothesis) and explaining the results of that test.
+
+```{r}
+xtabs(~EEDUC + RECVDVACC + GENID_DESCRIBE)
+```
+
+                
+
+
+
+
+
+
+```{r}
+xtabs(~EEDUC+ KIDS_12_17Y+ RECVDVACC)
+```
+```{r}
+summary(EEDUC)
+
+```
+
+
+```{r}
+summary(KIDS_12_17Y)
+```
+
+```{r}
+summary(RECVDVACC)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+xtabs(~ EEDUC + RECVDVACC + REGION)
+
+```
+ 
+
+```{r}
+xtabs(~EEDUC + RECVDVACC + GENID_DESCRIBE)
+
+```
